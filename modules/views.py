@@ -1,15 +1,15 @@
-from Modules import app
+from modules import app
 from flask import jsonify, request
 from datetime import datetime
 import json
 
-file = open("Modules/CATEGORIES.json")
+file = open("modules/CATEGORIES.json")
 CATEGORIES = json.load(file)
 
-file = open("Modules/USERS.json")
+file = open("modules/USERS.json")
 USERS = json.load(file)
 
-file = open("Modules/RECORDS.json")
+file = open("modules/RECORDS.json")
 RECORDS = json.load(file)
 
 
@@ -69,10 +69,7 @@ def create_category():
         }
     )
 
-    with open("Modules/CATEGORIES.json", "w") as file:
-        json.dump(CATEGORIES, file)
-
-    with open("Modules/CATEGORIES.json", "w") as file:
+    with open("modules/CATEGORIES.json", "w") as file:
         json.dump(CATEGORIES, file, indent=4)
 
     return jsonify(CATEGORIES)
@@ -88,7 +85,7 @@ def create_user():
         }
     )
 
-    with open("Modules/USERS.json", "w") as file:
+    with open("modules/USERS.json", "w") as file:
         json.dump(USERS, file, indent=4)
 
     return jsonify(USERS)
@@ -115,7 +112,7 @@ def create_record_user():
         }
     )
 
-    with open("Modules/RECORDS.json", "w") as file:
+    with open("modules/RECORDS.json", "w") as file:
         json.dump(RECORDS, file, indent=4)
 
     return jsonify(RECORDS)

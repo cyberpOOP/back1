@@ -1,1 +1,1 @@
-FLASK_APP=Modules
+FLASK_APP=modules

@@ -16,6 +16,11 @@ RECORDS = json.load(file)
 # GET /categories /users
 # POST /category /user
 
+@app.route("/")
+def start():
+    return "Hello"
+
+
 @app.route("/categories")
 def get_categories():
     return jsonify(CATEGORIES)

@@ -23,15 +23,25 @@ def start():
 
 @app.route("/categories")
 def get_categories():
+    file = open("modules/CATEGORIES.json")
+    CATEGORIES = json.load(file)
     return jsonify(CATEGORIES)
 
 
 @app.route("/users")
 def get_users():
+    file = open("modules/USERS.json")
+    USERS = json.load(file)
     return jsonify(USERS)
+
 
 @app.route("/by_user")
 def get_by_user():
+    file = open("modules/USERS.json")
+    USERS = json.load(file)
+    file = open("modules/RECORDS.json")
+    RECORDS = json.load(file)
+
     user = str(request.get_json())
     result = [
 
@@ -44,11 +54,18 @@ def get_by_user():
         if (RECORDS[i]["user id"]) == user_id:
             result.append(RECORDS[i])
 
-    return result
+    return jsonify(result)
 
 
 @app.route("/by_category")
 def get_by_category():
+    file = open("modules/CATEGORIES.json")
+    CATEGORIES = json.load(file)
+    file = open("modules/USERS.json")
+    USERS = json.load(file)
+    file = open("modules/RECORDS.json")
+    RECORDS = json.load(file)
+
     user = dict(request.get_json())
     result = [
 
@@ -65,11 +82,14 @@ def get_by_category():
         if (RECORDS[i]["user id"]) == user_id and RECORDS[i]["category id"] == category_id:
             result.append(RECORDS[i])
 
-    return result
+    return jsonify(result)
 
 
 @app.route("/category", methods=["POST"])
 def create_category():
+    file = open("modules/CATEGORIES.json")
+    CATEGORIES = json.load(file)
+
     category = request.get_json()
     CATEGORIES.append(
         {
@@ -86,6 +106,9 @@ def create_category():
 
 @app.route("/user", methods=["POST"])
 def create_user():
+    file = open("modules/USERS.json")
+    USERS = json.load(file)
+
     user = request.get_json()
     USERS.append(
         {
@@ -102,6 +125,13 @@ def create_user():
 
 @app.route("/user_record", methods=["POST"])
 def create_record_user():
+    file = open("modules/CATEGORIES.json")
+    CATEGORIES = json.load(file)
+    file = open("modules/USERS.json")
+    USERS = json.load(file)
+    file = open("modules/RECORDS.json")
+    RECORDS = json.load(file)
+
     name = dict(request.get_json())
     date = datetime.now().strftime("%d.%m.%Y %H:%M:%S")
     for i in range(len(USERS)):

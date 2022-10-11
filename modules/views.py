@@ -26,6 +26,10 @@ def get_categories():
     return jsonify(CATEGORIES)
 
 
+@app.route("/users")
+def get_users():
+    return jsonify(USERS)
+
 @app.route("/by_user")
 def get_by_user():
     user = str(request.get_json())

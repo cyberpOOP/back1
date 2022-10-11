@@ -1,13 +1,17 @@
-FROM python:3.9
+FROM python:3.9.10
 
 ENV FLASK_APP=modules
 
-COPY requirements.txt /opt
+# Create app directory
+WORKDIR /app
 
-RUN python3 -m pip install -r /opt/requirements.txt
+# Install app dependencies
+COPY requirements.txt ./
 
-COPY modules /opt/modules
+RUN pip install -r requirements.txt
 
-WORKDIR /opt
+# Bundle app source
+COPY . .
 
-CMD flask run --host 0.0.0.0 -p $PORT
+EXPOSE 5000
+CMD [ "flask", "run","--host","0.0.0.0","--port","5000"]

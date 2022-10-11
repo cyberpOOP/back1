@@ -35,6 +35,14 @@ def get_users():
     return jsonify(USERS)
 
 
+@app.route("/records")
+def get_records():
+    file = open("modules/RECORDS.json")
+    RECORDS = json.load(file)
+
+    return jsonify(RECORDS)
+
+
 @app.route("/by_user")
 def get_by_user():
     file = open("modules/USERS.json")

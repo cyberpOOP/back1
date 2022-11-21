@@ -42,7 +42,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "\"Glen\"",
+							"raw": "\"Den\"",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -68,7 +68,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Glen\",\r\n    \"category\": \"Taxi\",\r\n    \"value\": 120\r\n}",
+							"raw": "{\r\n    \"name\": \"Den\",\r\n    \"category\": \"Medicine\",\r\n    \"value\": 120\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -88,12 +88,9 @@
 					"response": []
 				},
 				{
-					"name": "User",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
+					"name": "Get_User",
 					"request": {
-						"method": "GET",
+						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
@@ -117,16 +114,13 @@
 					"response": []
 				},
 				{
-					"name": "Category",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
+					"name": "Get_Category",
 					"request": {
-						"method": "GET",
+						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\":\"Ben\",\r\n    \"category\":\"Taxi\"\r\n}",
+							"raw": "{\r\n    \"name\":\"Den\",\r\n    \"category\":\"Medicine\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"

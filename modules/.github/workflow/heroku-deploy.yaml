@@ -13,6 +13,6 @@ jobs:
      - uses: akhileshns/heroku-deploy@v3.12.12
        with:
          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-         heroku_app_name: "backenadlab12"
+         heroku_app_name: "backendlab12"
          heroku_email: "vlad0021135@gmail.com"
          usedocker: true
